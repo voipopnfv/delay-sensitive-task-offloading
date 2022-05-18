@@ -1,0 +1,4 @@
+opencv-python==4.2.0.34
+tensorflow-gpu==1.14.0
+scipy 
+matplotlib

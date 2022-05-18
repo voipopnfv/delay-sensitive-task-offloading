@@ -1,0 +1,22 @@
+item {
+  id: 1
+  name: 'logo'
+}
+item {
+  id: 2
+  name: 'traffic_sign'
+}
+item {
+  id: 3
+  name: 'bus_station'
+}
+item {
+  id: 4
+  name: 'bus_grid'
+}
+item {
+  id: 5
+  name: 'bus_stop'
+}
+
+

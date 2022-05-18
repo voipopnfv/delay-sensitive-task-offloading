@@ -1,0 +1,6 @@
+.vscode
+env-gpu/
+env/
+model/
+*__pycache__
+*.mp4
