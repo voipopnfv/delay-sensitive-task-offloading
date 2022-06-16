@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
+    "os"
 
 	"simulator/Agent/conf"
 	service "simulator/Agent/objdetectgrpc"
@@ -48,7 +49,8 @@ func Init(g *gin.Context) {
 }
 
 func Inference(g *gin.Context) {
-	dst := "./upload/"
+	dst := "/tmp/offloading/objectDetect/upload/"
+    os.MkdirAll(dst, os.ModePerm)
 	file, err := g.FormFile("file")
 	if err != nil {
 		log.Println("[ERROR] FormFile err: ", err)
@@ -100,7 +102,8 @@ func Inference(g *gin.Context) {
 }
 
 func Upload(g *gin.Context) {
-	dst := "./upload/"
+	dst := "/tmp/offloading/objectDetect/upload/"
+    os.MkdirAll(dst, os.ModePerm)
 	file, err := g.FormFile("file")
 	if err != nil {
 		log.Println("[ERROR] FormFile err: ", err)

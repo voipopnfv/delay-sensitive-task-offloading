@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
+    "os"
 
 	"simulator/Agent/conf"
 	service "simulator/Agent/visualnavigationgrpc"
@@ -49,7 +50,8 @@ func Init(g *gin.Context) {
 }
 
 func Inference(g *gin.Context) {
-	dst := "./upload/"
+	dst := "/tmp/offloading/visualNav/upload/"
+    os.MkdirAll(dst, os.ModePerm)
 	file, err := g.FormFile("file")
 	if err != nil {
 		log.Println("[ERROR] FormFile err: ", err)
@@ -64,7 +66,8 @@ func Inference(g *gin.Context) {
 	targetName := key + "-visualnavigation" + ext
 
 	// file.Filename abc.mp4
-	err = g.SaveUploadedFile(file, dst+sourceName)
+    err = g.SaveUploadedFile(file, dst+sourceName)
+
 	if err != nil {
 		log.Println("[ERROR] SaveUploadedFile err: ", err)
 		g.JSON(http.StatusInternalServerError, gin.H{"message": err})
@@ -102,7 +105,8 @@ func Inference(g *gin.Context) {
 }
 
 func Upload(g *gin.Context) {
-	dst := "./upload/"
+	dst := "/tmp/offloading/visualNav/upload/"
+    os.MkdirAll(dst, os.ModePerm)
 	file, err := g.FormFile("file")
 	if err != nil {
 		log.Println("[ERROR] FormFile err: ", err)
