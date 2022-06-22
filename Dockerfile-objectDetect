@@ -26,10 +26,13 @@ RUN apt-get update && apt-get install -y \
 COPY objDetectMod/ /root/objDetectMod
 WORKDIR "/root/objDetectMod"
 
-RUN pip3 install "protobuf<4.21.0"
+RUN pip3 install "protobuf<4.21.0" gdown
 RUN pip3 install --no-cache-dir -r requirement-gpu.txt
 
-EXPOSE 50052
+# download folder model
+RUN gdown --folder 18ywlGJ1ZbgL9hm2onvPR3tkxYOn52zz5
+
 RUN chmod u+x docker-startup.sh
+EXPOSE 50052
 
 CMD ["./docker-startup.sh"]
