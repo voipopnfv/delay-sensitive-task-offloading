@@ -1,0 +1,9 @@
+FROM golang:1.16-bullseye
+MAINTAINER opnfv
+
+COPY simulator/ /root/simulator
+WORKDIR "/root/simulator"
+
+RUN make agent
+
+CMD ["./agent"]
