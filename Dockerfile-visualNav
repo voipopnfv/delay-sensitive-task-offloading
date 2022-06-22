@@ -26,10 +26,14 @@ RUN apt-get update && apt-get install -y \
 COPY visualNavigationMod/ /root/visualNavigationMod
 WORKDIR "/root/visualNavigationMod"
 
-RUN pip3 install "protobuf<4.21.0"
+RUN pip3 install "protobuf<4.21.0" gdown
 RUN pip3 install --no-cache-dir -r requirement-gpu.txt
 
-EXPOSE 50051
+# download folder model and input
+RUN gdown --folder 1bH_F22sfViC9auaQ3SwyXQrFs3NmeEQA \
+    && gdown --folder 1uT4tEYN2JxFFfpgSQlUF-f14iIQweEGn
+
 RUN chmod u+x docker-startup.sh
+EXPOSE 50051
 
 CMD ["./docker-startup.sh"]
