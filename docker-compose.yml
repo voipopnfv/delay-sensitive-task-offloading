@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+    visualNavigation:
+        build:
+            context: .
+            dockerfile: Dockerfile-visualNav
+        image: visual-navigation-img
+        ports:
+            - 50051:50051
+        container_name: visual-navigation-container
+        volumes:
+            - /tmp/offloading:/tmp/offloading
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities: [gpu]
+
+
+    objDetect:
+        build:
+            context: .
+            dockerfile: Dockerfile-objectDetect
+        image: object-detect-img
+        ports:
+            - 50052:50052
+        container_name: object-detect-container
+        volumes:
+            - /tmp/offloading:/tmp/offloading
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities: [gpu]
+
+    agent:
+        build:
+            context: .
+            dockerfile: Dockerfile-agent
+        image: offloading-agent-img
+        network_mode: host
+        container_name: offloading-agent-container
+        volumes:
+            - /tmp/offloading:/tmp/offloading
