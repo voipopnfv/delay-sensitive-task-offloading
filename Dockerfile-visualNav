@@ -30,8 +30,8 @@ RUN pip3 install "protobuf<4.21.0" gdown
 RUN pip3 install --no-cache-dir -r requirement-gpu.txt
 
 # download folder model and input
-RUN gdown --folder 1bH_F22sfViC9auaQ3SwyXQrFs3NmeEQA \
-    && gdown --folder 1uT4tEYN2JxFFfpgSQlUF-f14iIQweEGn
+RUN gdown --folder 1ie_JoL1gIpwhOwp6oRQmzc9HDq4SoeUu \
+    && gdown --folder 1ug__3mSvoIgF8b1M6JmZNuEjjwHKCKSp
 
 RUN chmod u+x docker-startup.sh
 EXPOSE 50051
