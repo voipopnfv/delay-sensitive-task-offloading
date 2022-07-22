@@ -43,3 +43,13 @@ services:
         container_name: offloading-agent-container
         volumes:
             - /tmp/offloading:/tmp/offloading
+
+    controller:
+        build:
+            context: .
+            dockerfile: Dockerfile-controller
+        image: offloading-controller-img
+        network_mode: host
+        container_name: offloading-controller-container
+        volumes:
+            - /tmp/offloading:/tmp/offloading

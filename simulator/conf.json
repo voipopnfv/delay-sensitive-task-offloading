@@ -1,12 +1,54 @@
 {
     "agent": {
         "OBJ_DETECT_MOD_SERVICE_PORT" : "50052",
-        "OBJ_DETECT_MOD_POLICY" : "SAVE",
+        "OBJ_DETECT_MOD_POLICY" : "UPLOAD",
         "OBJ_DETECT_MOD_UPLOAD_RATIO" : 0,
         "VISUAL_NAVIGATION_MOD_SERVICE_PORT" : "50051",
-        "VISUAL_NAVIGATION_MOD_POLICY" : "SAVE" ,
-        "CLOUDURL" : "http://140.112.28.131:8000",
+        "VISUAL_NAVIGATION_MOD_POLICY" : "UPLOAD" ,
+        "CLOUDURL" : "http://140.112.28.137:8000",
         "AGENT_PORT" : "8000",
-        "ROLE" : "EDGE"
+        "ROLE" : "CLOUD"
+    },
+    "controller": {
+        "CONTROLLER_PORT": "8001",
+        "CHANGE_POLICY_GPUUTIL_THRESHOLD": 0.6,
+        "PROBE_FILE_SIZE_KB": 100,
+        "VIDEO_FILE_SIZE_KB": 814,
+        "CLOUDLIST": {
+            "local": {
+                "Url": "127.0.0.1:8000",
+                "Services": {
+                    "visualnavigationmod": {
+                        "ServiceUrl": "visualnavigationmod",
+                        "InferenceTimeSlope": 0.7439,
+                        "InferenceTimeConstant": 1.106
+                    },
+                    "objdetectmod": {
+                        "ServiceUrl": "objdetectmod",
+                        "InferenceTimeSlope": 4.002,
+                        "InferenceTimeConstant": 0.6698
+                    }
+                }
+            }
+        },
+        "EDGELIST": {
+            "node3": {
+                "Url": "140.112.28.138:8000",
+                "Services": {
+                    "visualnavigationmod": {
+                        "ServiceUrl": "visualnavigationmod",
+                        "InferenceTimeSlope": 3.592,
+                        "InferenceTimeConstant": 1.364,
+                        "UploadProb": 0.0
+                    },
+                    "objdetectmod": {
+                        "ServiceUrl": "objdetectmod",
+                        "InferenceTimeSlope": 5.383,
+                        "InferenceTimeConstant": 0.241,
+                        "UploadProb":0.0
+                    }
+                }
+            }
+        }
     }
 }
