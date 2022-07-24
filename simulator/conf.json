@@ -1,10 +1,10 @@
 {
     "agent": {
         "OBJ_DETECT_MOD_SERVICE_PORT" : "50052",
-        "OBJ_DETECT_MOD_POLICY" : "UPLOAD",
-        "OBJ_DETECT_MOD_UPLOAD_RATIO" : 0,
+        "OBJ_DETECT_MOD_POLICY" : "SAVE",
+        "OBJ_DETECT_MOD_UPLOAD_RATIO" : 0.5,
         "VISUAL_NAVIGATION_MOD_SERVICE_PORT" : "50051",
-        "VISUAL_NAVIGATION_MOD_POLICY" : "UPLOAD" ,
+        "VISUAL_NAVIGATION_MOD_POLICY" : "SAVE" ,
         "CLOUDURL" : "http://140.112.28.137:8000",
         "AGENT_PORT" : "8000",
         "ROLE" : "CLOUD"
@@ -45,7 +45,7 @@
                         "ServiceUrl": "objdetectmod",
                         "InferenceTimeSlope": 5.383,
                         "InferenceTimeConstant": 0.241,
-                        "UploadProb":0.0
+                        "UploadProb":0.5
                     }
                 }
             }
