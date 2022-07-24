@@ -3,7 +3,7 @@ MAINTAINER opnfv
 
 COPY simulator/ /root/simulator
 WORKDIR "/root/simulator"
-
+RUN dd if=/dev/zero of=probe_100k bs=102400 count=1
 RUN make agent
 
 CMD ["./agent"]
